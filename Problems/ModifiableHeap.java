@@ -1,5 +1,3 @@
-package heap;
-
 public class ModifiableHeap {
 
 	int CAPACITY;
@@ -119,14 +117,13 @@ public class ModifiableHeap {
 
 	public static void main(String arg[]) throws Exception {
 
+		
 		ModifiableHeap heap = new ModifiableHeap(1000);
 		heap.push(new Movie(0, 5));
 		heap.push(new Movie(1, 10));
 		heap.push(new Movie(2, 20));
 		heap.push(new Movie(3, 30));
 		heap.push(new Movie(4, 40));
-
-		// heap.heapPrint(heap.heap, heap.heapSize);
 
 		System.out.printf("%d ", heap.pop().id);
 		System.out.printf("%d ", heap.pop().id);
