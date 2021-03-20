@@ -1,3 +1,5 @@
+package heap;
+
 public class ModifiableHeap {
 
 	int CAPACITY;
@@ -19,6 +21,15 @@ public class ModifiableHeap {
 		heap[current] = value;
 		heapifyUp(current);
 		heapifyDown(current);
+	}
+	
+	void deleteHeapValue(Movie value) {
+		int current = index[value.id];
+		value.popularity = Integer.MAX_VALUE;
+		heap[current] = value;
+		heapifyUp(current);
+		heapifyDown(current);
+		pop();
 	}
 
 	void push(Movie value) {
@@ -156,6 +167,20 @@ public class ModifiableHeap {
 		for (int i = 0; i < values.length; i++) {
 			heap.push(values[i]);
 		}
+		
+		heap.deleteHeapValue(new Movie(1, 400));
+		
+		values = new Movie[heap.size];
+		
+		System.out.println();
+		for (int i = 0; i < values.length; i++) {
+			values[i] = heap.pop();
+			System.out.printf("%d ", values[i].id);
+		}
+		
+		for (int i = 0; i < values.length; i++) {
+			heap.push(values[i]);
+		}	
 	}
 }
 
